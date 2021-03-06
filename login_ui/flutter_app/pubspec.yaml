@@ -1,5 +1,5 @@
 name: flutter_app
-description: A new Flutter project.
+description: Login UI and Google Maps API.
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -24,6 +24,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   flutter_svg: ^0.19.1
+  google_maps_flutter: ^0.5.11
 
 dev_dependencies:
   flutter_test:
