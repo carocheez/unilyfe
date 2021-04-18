@@ -10,7 +10,8 @@ class ReviewsButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        padding: EdgeInsets.all(4),
+        alignment: Alignment.center,
+        padding: EdgeInsets.all(30),
         child: ElevatedButton(
           onPressed: () {
              Navigator.push(
@@ -20,9 +21,10 @@ class ReviewsButton extends StatelessWidget {
           },
           style: ElevatedButton.styleFrom(
             primary: Color(0xFFF46C6B),
-            onPrimary: Colors.white,
+            //onPrimary: Colors.white,
+            onPrimary: Color(0xFFF46C6B),
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0)),
+                borderRadius: BorderRadius.circular(40.0)),
           ),
           child: Text(
             'Create a Review',

@@ -11,15 +11,15 @@ class DropDownState extends State<DropDown> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //appBar: AppBar(
-        //title: Text('DropDown'),
-      //),
+      appBar: AppBar(
+        title: Text('DropDown'),
+      ),
       body: Center(
         child: Container(
           padding: const EdgeInsets.all(0.0),
           child: DropdownButton<String>(
             value: chosenValue,
-            //elevation: 5,
+            elevation: 5,
             style: TextStyle(color: Colors.black),
 
             items: <String>[
@@ -40,9 +40,9 @@ class DropDownState extends State<DropDown> {
             hint: Text(
               "Choose a location",
               style: TextStyle(
-                  color: Colors.black,
+                  color: Colors.amberAccent,
                   fontSize: 16,
-                  fontWeight: FontWeight.w600),
+                  fontWeight: FontWeight.w900),
             ),
             onChanged: (String value) {
               setState(() {

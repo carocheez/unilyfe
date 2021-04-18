@@ -34,8 +34,10 @@ class LocationsListState extends State<LocationList> {
         backgroundColor: Colors.white,
       ),
       body: Column(
+        
         //child: Container(
           children: [
+            Align(),
           //padding: const EdgeInsets.all(100.0),
           //color: Color(0xFFF46C6B),
           DropdownButton<String>(
