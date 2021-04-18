@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 import 'package:unilyfe_app/models/post.dart';
 import 'package:unilyfe_app/views/new_posts/submit_view.dart';
+import 'package:flutter_star_rating/flutter_star_rating.dart';
 
 // class LocationList extends StatefulWidget {
 //   @override
@@ -16,6 +17,7 @@ class LocationRating extends StatefulWidget {
 
 class LocationRatingState extends State<LocationRating> {
   String chosenValue;
+  double rating = 0.0;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +36,7 @@ class LocationRatingState extends State<LocationRating> {
         backgroundColor: Colors.white,
       ),
       body: Column(
+        
         //child: Container(
           children: [
           //padding: const EdgeInsets.all(100.0),
@@ -76,7 +79,15 @@ class LocationRatingState extends State<LocationRating> {
           //     });
           //   },
           // ),
-          SmoothStarRating()
+          SmoothStarRating(),
+          StarRating(
+          rating: rating,
+            onChangeRating: (int rating) {
+              setState(() {
+            this.rating = rating.toDouble();
+            });
+          },
+              )
             // ElevatedButton(
             //     onPressed: () {
             //       Navigator.push(
