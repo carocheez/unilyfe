@@ -61,13 +61,7 @@ class LocationsListState extends State<LocationList> {
                 child: Text(value),
               );
             }).toList(),
-            hint: Text(
-              "Choose a location",
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600),
-            ),
+          
             onChanged: (String value) {
               setState(() {
                 chosenValue = value;
@@ -91,18 +85,6 @@ class LocationsListState extends State<LocationList> {
               padding: const EdgeInsets.all(30.0),
               child: Center(
             child: SmoothStarRating(
-            rating: rating,
-            isReadOnly: false,
-            size: 40,
-            filledIconData: Icons.star,
-            halfFilledIconData: Icons.star_half,
-            defaultIconData: Icons.star_border,
-            starCount: 5,
-            allowHalfRating: true,
-            spacing: 2.0,
-            onRated: (value) {
-              rating = value;
-            },
         )),
             ),
           
@@ -115,34 +97,7 @@ class LocationsListState extends State<LocationList> {
                 autofocus: true,
               ),
             ),
-            ElevatedButton(
-                onPressed: () async {
-                  var uid = await Provider.of(context).auth.getCurrentUID();
-                  var username = '';
-                  await FirebaseFirestore.instance.collection('userData').doc(uid).get().then((result) {
-                    username = result['username'];
-                  });
-                  var doc = FirebaseFirestore.instance.collection('reviews').doc();
-                  var reviewid = doc.id;
-                  await FirebaseFirestore.instance.collection('reviews').doc(doc.id).set({
-                    'title': _titleController.text,
-                    'text': _textController.text,
-                    'rating': rating,
-                    'location': chosenValue,
-                    'time': DateTime.now(),
-                    'uid': uid,
-                    'username': username,
-                    'reviewid': reviewid,
-                  });
-                  // print('TITLE: ${_titleController.text}');
-                  // print('TEXT: ${_textController.text}');
-                  // print('RATING: ${rating.toString()}');
-                  // print('LOCATION: $chosenValue');
-                  // print('USERNAME: $username');
-                  // print('UID: $uid');
-                  Navigator.of(context).popUntil((route) => route.isFirst);
-                },
-                child: Text('Submit Review')),
+            
           ],
       ),
       
