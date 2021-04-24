@@ -115,7 +115,34 @@ class LocationsListState extends State<LocationList> {
                 autofocus: true,
               ),
             ),
-            
+            ElevatedButton(
+                onPressed: () async {
+                  var uid = await Provider.of(context).auth.getCurrentUID();
+                  var username = '';
+                  await FirebaseFirestore.instance.collection('userData').doc(uid).get().then((result) {
+                    username = result['username'];
+                  });
+                  var doc = FirebaseFirestore.instance.collection('reviews').doc();
+                  var reviewid = doc.id;
+                  await FirebaseFirestore.instance.collection('reviews').doc(doc.id).set({
+                    'title': _titleController.text,
+                    'text': _textController.text,
+                    'rating': rating,
+                    'location': chosenValue,
+                    'time': DateTime.now(),
+                    'uid': uid,
+                    'username': username,
+                    'reviewid': reviewid,
+                  });
+                  // print('TITLE: ${_titleController.text}');
+                  // print('TEXT: ${_textController.text}');
+                  // print('RATING: ${rating.toString()}');
+                  // print('LOCATION: $chosenValue');
+                  // print('USERNAME: $username');
+                  // print('UID: $uid');
+                  Navigator.of(context).popUntil((route) => route.isFirst);
+                },
+                child: Text('Submit Review')),
           ],
       ),
       
