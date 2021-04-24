@@ -61,7 +61,13 @@ class LocationsListState extends State<LocationList> {
                 child: Text(value),
               );
             }).toList(),
-          
+            hint: Text(
+              "Choose a location",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600),
+            ),
             onChanged: (String value) {
               setState(() {
                 chosenValue = value;
