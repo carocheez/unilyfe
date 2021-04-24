@@ -91,6 +91,18 @@ class LocationsListState extends State<LocationList> {
               padding: const EdgeInsets.all(30.0),
               child: Center(
             child: SmoothStarRating(
+            rating: rating,
+            isReadOnly: false,
+            size: 40,
+            filledIconData: Icons.star,
+            halfFilledIconData: Icons.star_half,
+            defaultIconData: Icons.star_border,
+            starCount: 5,
+            allowHalfRating: true,
+            spacing: 2.0,
+            onRated: (value) {
+              rating = value;
+            },
         )),
             ),
           
